@@ -1,30 +1,32 @@
-# Simulateur de salaire 2027 — Maroc
+# Simulateur de salaire — Maroc · PLF 2027
 
-Simulateur de salaire net au Maroc, avec un calcul **annuel complet conforme à la loi** :
-Code général des impôts (art. 56, 57, 59, 73, 74 et 247) et projet de loi de finances
-2027 n° 60-26 (barèmes transitoires 2027-2030, barème définitif 2031).
+Simulateur de salaire net au Maroc, **calcul annuel complet** selon le Code général des impôts (art. 56, 57, 59, 73, 74) et le projet de loi de finances 2027 (n° 60-26) : CNSS, AMO, frais professionnels, barèmes transitoires 2026 → 2031, charges de famille (600 DH/an), indemnités, retraite complémentaire (CIMR) et coût employeur.
 
-**En ligne : https://salaire-simulator.vercel.app**
+🔗 **En ligne : https://salaire-simulator.vercel.app**
+📜 Texte officiel : https://www.finances.gov.ma/Publication/db/2027/corps-PLF2027-fr.pdf
 
 ## Fonctionnalités
 
-- Mode **Brut → Net** et **Net → Brut**
-- Années 2026 à 2031 (barèmes transitoires du PLF 2027)
-- Bulletin de paie détaillé, au centime, par mois et par an
-- CNSS 4,48 % (IPE incluse) plafonnée, AMO 2,26 %, frais professionnels
-  (35 %/25 % en 2026, 45 % dès 2027, plafond 35 000 DH/an)
-- Réduction pour charges de famille : 600 DH/an/personne (LF 2026)
-- Options avancées : indemnités exonérées (imposables en 2031, art. 57-1°),
-  retraite complémentaire déductible (CIMR)
-- Impôt tranche par tranche, sommes à déduire, coût employeur
-- Rapport complet téléchargeable en PDF
-- Interface FR / EN, thème clair / sombre
-- Lien vers le texte officiel du PLF 2027 (Ministère de l'Économie et des Finances)
+- Conversion **Brut → Net** et **Net → Brut** (brut calculé automatiquement)
+- Bulletin de paie détaillé, mensuel et annuel, au centime
+- Impôt tranche par tranche, taux marginal, taux réel, sommes à déduire
+- Comparaison 2026 / année choisie et graphique du net 2026 → 2031
+- **Rapport complet téléchargeable en PDF**
+- Interface **FR / EN**, thème **clair / sombre**
+- Animations **Framer Motion** (cartes, graphique, montant net)
 
-## Technique
+## Stack
 
-Application statique en un seul fichier `index.html` (aucune dépendance),
-déployée sur Vercel.
+React 19 · Vite 7 · Framer Motion 12 — moteur de calcul en JavaScript pur (`src/calc.js`), validé au centime contre des simulations publiées (Dreamjob, e-RH, Devstation).
 
-> Simulateur indicatif — le PLF 2027 est un texte déposé, susceptible
-> d'amendements avant publication au Bulletin officiel. Ce n'est pas un conseil fiscal.
+## Développement
+
+```bash
+npm install
+npm run dev      # serveur de développement
+npm run build    # build de production dans dist/
+```
+
+## Avertissement
+
+Outil indicatif : le PLF 2027 est un texte déposé, susceptible d'évoluer avant sa publication au Bulletin officiel. Ce n'est pas un conseil fiscal.
